@@ -13,22 +13,12 @@ from pathlib import Path
 
 import pandas as pd
 
+from ai_ecosystem.constants import AIML_KEYWORDS
+
 logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 VALIDATION_DIR = PROJECT_ROOT / "data" / "validation"
-
-# Keywords for estimating AI/ML relevance in GitHub repos
-AIML_KEYWORDS = [
-    "ai", "ml", "llm", "gpt", "transformer", "neural", "deep-learning",
-    "deeplearning", "machine-learning", "machinelearning", "nlp",
-    "computer-vision", "pytorch", "tensorflow", "keras", "bert", "diffusion",
-    "stable-diffusion", "langchain", "huggingface", "openai", "rag",
-    "agent", "rlhf", "reinforcement", "generative", "chatbot", "embedding",
-    "fine-tune", "finetune", "lora", "qlora", "llama", "mistral", "gemma",
-    "whisper", "sam", "yolo", "detectron", "onnx", "vllm", "ollama",
-    "copilot", "autopilot", "automl",
-]
 
 
 def find_column(df: pd.DataFrame, candidates: list[str]) -> str | None:
