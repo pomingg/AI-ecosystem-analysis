@@ -92,8 +92,13 @@ def load_github_trending(data_dir: Path = DEFAULT_OUTPUT_DIR) -> pd.DataFrame:
         logger.info("Loading: %s", parquet_files[0].name)
         return pd.read_parquet(parquet_files[0])
 
+    csv_files = sorted(data_dir.glob("*.csv"))
+    if csv_files:
+        logger.info("Loading CSV: %s", csv_files[0].name)
+        return pd.read_csv(csv_files[0])
+
     raise FileNotFoundError(
-        f"No parquet files found in {data_dir}. "
+        f"No parquet or CSV files found in {data_dir}. "
         "Run download_github_trending() first."
     )
 
