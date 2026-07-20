@@ -353,7 +353,7 @@ def validate_github(df: pd.DataFrame) -> ValidationReport:
     # --- Month continuity ---
     if month_col:
         months_series = pd.to_datetime(df[month_col].astype(str), format="mixed", errors="coerce")
-        unique_months = months_series.dropna().dt.to_period("M").unique().sort_values()
+        unique_months = sorted(months_series.dropna().dt.to_period("M").unique())
 
         if len(unique_months) > 1:
             expected_range = pd.period_range(
