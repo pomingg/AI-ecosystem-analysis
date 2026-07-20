@@ -1,0 +1,27 @@
+# Data directories (large files, not tracked)
+data/raw/
+!data/raw/.gitkeep
+data/processed/
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
